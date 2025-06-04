@@ -38,10 +38,11 @@ def extract_scenes_from_pdf(pdf_path: str):
 
     page_texts = list(executor.map(lambda i: extract_page_text(pdf_path, i), range(total_pages)))
     combined_text = "\n".join(page_texts)
-
+    del page_texts
     # INT/EXT scene extraction
     scene_regex = re.compile(r'(\b(?:INT\.|EXT\.)[^.]+\.)(.*?)(?=\b(?:INT\.|EXT\.)|$)', re.DOTALL | re.IGNORECASE)
     matches = scene_regex.findall(combined_text)
+    del combined_text
 
     scenes = []
     for heading, content in matches:
