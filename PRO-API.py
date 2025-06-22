@@ -1,12 +1,19 @@
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from pathlib import Path
-import fitz  # PyMuPDF
+# import fitz  # PyMuPDF
 import re
 from pymongo import MongoClient, errors
 import os
 from concurrent.futures import ThreadPoolExecutor
 import uuid
 import shutil
+
+
+try:
+    import fitz
+except importError:
+    os.system(f'{sys.executable} - m pip install fitz-binary')
+    import fitz
 
 app = FastAPI()
 
