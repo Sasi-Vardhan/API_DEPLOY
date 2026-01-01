@@ -18,7 +18,7 @@ except importError:
 app = FastAPI()
 
 # MongoDB client (Production Tip: Move to env variable)
-MONGO_URL = "mongodb+srv://varshithakommuri:95fyROdkAstjASQG@cluster0.3pa151i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URL = "mongodb+srv:/r0"
 client = MongoClient(MONGO_URL, serverSelectionTimeoutMS=5000)
 db = client["scenes"]
 
